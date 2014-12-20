@@ -1,0 +1,31 @@
+{% extends "skeleton.html" %}
+
+{% block title %}
+	<title>NAS | Notepad</title>
+{% endblock %}
+
+{% block content %}
+
+	<div id="notepad-content" class="row">
+		<div id="notepad-saved-files" class="small-2 columns">
+			<p><strong class="small-title">SAVED FILES</strong></p>
+		</div>
+		<form>
+			<div id="notepad-editor" class="small-10 columns">
+				<div class="row">
+					<div id="notepad-document-title" class="small-2 columns">
+						<p id="notepad-document-title"><strong class="small-title">DOCUMENT TITLE</strong></p>	
+					</div>
+					<div class="small-10 columns">
+						<input type=text />
+					</div>
+				</div>
+				<textarea rows="30"></textarea>
+				<a href="#" class="button radius tiny right">
+					<i id="notepad-save-tick" class="glyphicon glyphicon-save"></i> SAVE
+				</a>
+			</div>
+		</form>
+	</div>
+
+{% endblock %}
