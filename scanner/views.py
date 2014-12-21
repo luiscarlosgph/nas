@@ -7,5 +7,4 @@ def show(request):
 
 def scannerList(request):
 	cmdOutput = subprocess.Popen(['scanimage', '-L'], stdout = subprocess.PIPE).communicate()[0]
-	#return HttpResponse(cmdOutput)
-	return HttpResponse('Hello')
+	return HttpResponse(cmdOutput)
