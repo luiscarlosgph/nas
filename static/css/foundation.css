@@ -6865,3 +6865,8 @@ body {
 .small-title {
 	font-size: 75%;
 }
+
+#top-left-icon-bar-ul > li.not-active > a:hover {
+	background-color: #FAFAFA;
+	color: #333333;
+}
