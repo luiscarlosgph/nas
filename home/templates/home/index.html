@@ -4,6 +4,18 @@
 	<title>NAS | Dashboard</title>
 {% endblock %}
 
+{% block sidenav %}
+	<li class="active"><a href="/"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>
+	<!-- <li><a href="/music-player"><i class="glyphicon glyphicon-music"></i> Music Player</a></li> -->
+	<li><a href="/download-manager"><i class="glyphicon glyphicon-download"></i> Download Manager</a></li>
+	<li><a href="/scanners"><i class="glyphicon glyphicon-inbox"></i> Scanners</a></li>
+	<li><a href="/printers"><i class="glyphicon glyphicon-print"></i> Printers</a></li>
+	<li><a href="/file-explorer"><i class="glyphicon glyphicon-folder-open"></i> File Explorer</a></li>
+	<li><a href="/notepad"><i class="glyphicon glyphicon-pencil"></i> Notepad</a></li>
+	<li><a href="/tasks"><i class="glyphicon glyphicon-list-alt"></i> Tasks</a></li>
+	<li><a href="/alarms"><i class="glyphicon glyphicon-time"></i> Alarms</a></li>
+{% endblock %}
+
 {% block content %}
 	
 	<div class="row">

@@ -1,24 +1,24 @@
 {% extends "skeleton.html" %}
 
 {% block title %}
-	<title>NAS | Download Manager</title>
+	<title>NAS | File Explorer</title>
 {% endblock %}
 
 {% block sidenav %}
 	<li><a href="/"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>
 	<!-- <li><a href="/music-player"><i class="glyphicon glyphicon-music"></i> Music Player</a></li> -->
-	<li class="active"><a href="/download-manager"><i class="glyphicon glyphicon-download"></i> Download Manager</a></li>
+	<li><a href="/download-manager"><i class="glyphicon glyphicon-download"></i> Download Manager</a></li>
 	<li><a href="/scanners"><i class="glyphicon glyphicon-inbox"></i> Scanners</a></li>
 	<li><a href="/printers"><i class="glyphicon glyphicon-print"></i> Printers</a></li>
-	<li><a href="/file-explorer"><i class="glyphicon glyphicon-folder-open"></i> File Explorer</a></li>
+	<li class="active"><a href="/file-explorer"><i class="glyphicon glyphicon-folder-open"></i> File Explorer</a></li>
 	<li><a href="/notepad"><i class="glyphicon glyphicon-pencil"></i> Notepad</a></li>
 	<li><a href="/tasks"><i class="glyphicon glyphicon-list-alt"></i> Tasks</a></li>
 	<li><a href="/alarms"><i class="glyphicon glyphicon-time"></i> Alarms</a></li>
 {% endblock %}
 
 {% block content %}
-				<div class="row">
-					<iframe src="http://nas:9091" style="width: 100%; height: 640px" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
-					</iframe>
-				</div>
+	<div id="file-explorer-content" class="row">
+		<!-- TODO -->
+	</div>
+	<!-- <script src="/static/js/file_explorer.js"></script> -->
 {% endblock %}

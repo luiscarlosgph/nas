@@ -6870,3 +6870,30 @@ body {
 	background-color: #FAFAFA;
 	color: #333333;
 }
+
+#scanner-prev-pics-ul > li {
+	position: relative;
+}
+
+#scanner-prev-pics-ul > li > a > img {
+	padding-top: 7%;
+}
+
+#scanner-prev-pics-ul > li > a.scanner-delete-pic {
+	margin: 0; 
+	padding: 0;
+	position: absolute;
+	top: -2%;
+	right: 6%;
+}
+
+#scanner-prev-pics-ul > li > a > i {
+	margin: 0;
+	padding: 0;
+	color: rgb(170, 170, 170);
+	font-size: x-small;
+}
+
+#login-btn {
+	font-size: 0.6875rem;
+}

@@ -4,6 +4,18 @@
 	<title>NAS | Scanners</title>
 {% endblock %}
 
+{% block sidenav %}
+	<li><a href="/"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>
+	<!-- <li><a href="/music-player"><i class="glyphicon glyphicon-music"></i> Music Player</a></li> -->
+	<li><a href="/download-manager"><i class="glyphicon glyphicon-download"></i> Download Manager</a></li>
+	<li class="active"><a href="/scanners"><i class="glyphicon glyphicon-inbox"></i> Scanners</a></li>
+	<li><a href="/printers"><i class="glyphicon glyphicon-print"></i> Printers</a></li>
+	<li><a href="/file-explorer"><i class="glyphicon glyphicon-folder-open"></i> File Explorer</a></li>
+	<li><a href="/notepad"><i class="glyphicon glyphicon-pencil"></i> Notepad</a></li>
+	<li><a href="/tasks"><i class="glyphicon glyphicon-list-alt"></i> Tasks</a></li>
+	<li><a href="/alarms"><i class="glyphicon glyphicon-time"></i> Alarms</a></li>
+{% endblock %}
+
 {% block content %}
 
 	<div id="scanner-content" class="row">
@@ -16,21 +28,19 @@
 				</select>
 			</div>
 			<div class="small-2 columns">
-				<a id="scanner-scan-btn" class="button radius tiny right">
-					<i id="scanner-scan-button" class="glyphicon glyphicon-camera"></i> SCAN
+				<a class="button radius tiny right">
+					<i class="glyphicon glyphicon-camera"></i> SCAN
 				</a>
 			</div>
 		</div>
-		<div class="progress">
-			<span id="cpu-usage-meter" class="meter" style="width: 50%"></span>
-		</div>
 		<div class="row">
 			<div class="small-12 columns">
-				<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-					{% %}
+				<p><strong class="small-title">PREVIOUSLY SCANNED IMAGES</strong></p>
+				<ul id="scanner-prev-pics-ul" class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+					{% load scanned_images %}
+					{% showPrevScannedImages %}
 					<!--
-					<li><a class="th" href="http://i.telegraph.co.uk/multimedia/archive/02476/mars-rover_2476831b.jpg"><img src="http://i.telegraph.co.uk/multimedia/archive/02476/mars-rover_2476831b.jpg"></a></li>
-					<li><a class="th" href="http://www.ausbt.com.au/photos/view/maxsize:640,480/51a6997345e44331bab3314b767f2254-qff-mars-rover-920.jpg"><img src="http://www.ausbt.com.au/photos/view/maxsize:640,480/51a6997345e44331bab3314b767f2254-qff-mars-rover-920.jpg"></a></li>
+					<li><a class="th" href=""><img src=""></a></li>
 					-->
 				</ul>
 			</div>
