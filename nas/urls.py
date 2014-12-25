@@ -21,5 +21,7 @@ urlpatterns = patterns('',
 	 url(r'^scanners/scan/', 'scanner.views.scan', name='scan'),
 	 url(r'^printers/$', 'printer.views.show', name='printer'),
 	 url(r'^file-explorer/$', 'file_explorer.views.show', name='fileExplorer'),
+	 url(r'^tasks/$', 'task.views.show', name='task'),
+	 url(r'^alarms/$', 'alarm.views.show', name='alarm'),
     url(r'^admin/$', include(admin.site.urls)),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

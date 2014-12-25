@@ -43,6 +43,8 @@ INSTALLED_APPS = (
 	 'notepad',
 	 'printer',
 	 'file_explorer',
+	 'task',
+	 'alarm',
 )
 
 MIDDLEWARE_CLASSES = (
