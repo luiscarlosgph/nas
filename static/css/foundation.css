@@ -6897,3 +6897,7 @@ body {
 #login-btn {
 	font-size: 0.6875rem;
 }
+
+#dropdown-ul > li > a:hover {
+	background-color: #008CBA;
+}
