@@ -25,11 +25,6 @@ def memoryUsage():
 	return str(percentage) + '%' 
 
 @register.simple_tag
-def cpuUsage():
-	return "poyas"
-#	return str(int(psutil.cpu_percent(interval = 1) + 0.5)) + '%'
-
-@register.simple_tag
 def diskUsage():
 	cmdOutput = subprocess.Popen(['df', '-h', '/dev/sda1'], stdout = subprocess.PIPE).communicate()[0]
 	p = re.compile('\s\d+\%\s')

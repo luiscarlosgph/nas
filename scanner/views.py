@@ -17,8 +17,7 @@ def show(request):
 def scannerList(request):
 	cmdOut = subprocess.Popen(['scanimage', '-L'], stdout = subprocess.PIPE).communicate()[0]
 	ret = 'None'
-	m = re.match('device.+is\sa\s(.+)$', cmdOut)
-	# TODO: support more than one scanner
-	if (m):
-		ret = m.group(1)
+	listOfMatches = re.findall('device.+is\sa\s(.+)$', cmdOut)
+	if (len(listOfMatches) > 0):
+		ret = '\n'.join(listOfMatches)
 	return HttpResponse(ret.replace('_', ' '))

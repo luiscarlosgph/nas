@@ -14,15 +14,11 @@ function refreshScannerList() {
 				scannerList.removeChild(scannerList.firstChild);
 			}
 			
-			// If any scanner detected
-			if (scanners[0] != 'None') {
-				// For each line in the response to the query we will create a <li> tag inside of the <ul>
-				for (var i = 0; i < scanners.length; i++) {
-					var li = document.createElement('option');
-					li.innerHTML = scanners[i];
-					li.appendChild(document.createTextNode(scanners[i]));
-					scannerList.appendChild(li);
-				}
+			// For each line in the response to the query we will create a <li> tag inside of the <ul>
+			for (var i = 0; i < scanners.length; i++) {
+				var li = document.createElement('option');
+				li.appendChild(document.createTextNode(scanners[i]));
+				scannerList.appendChild(li);
 			}
 		}
 	}		
