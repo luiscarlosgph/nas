@@ -18,12 +18,14 @@
 
 {% block content %}
 	
+	{% load home_extras %}
+	
 	<div class="row">
 		<div class="small-2 columns">
 			<p><span class="glyphicon glyphicon-calendar"></span><strong class="small-title">DATE AND TIME</strong></p>
 		</div>
 		<div class="small-3 columns">
-			<p id="datetime-text">{{ datetime }}</p>
+			<p id="datetime-text">{% datetime %}</p>
 		</div>
 		<div class="small-7 columns">
 		</div>
@@ -33,7 +35,7 @@
 			<p><span class="glyphicon glyphicon-road"></span><strong class="small-title">UPTIME</strong></p>
 		</div>
 		<div class="small-3 columns">
-			<p id="uptime-text">{{ uptime }}</p>
+			<p id="uptime-text">{% uptime %}</p>
 		</div>
 		<div class="small-7 columns">
 		</div>
@@ -43,11 +45,11 @@
 			<p><span class="glyphicon glyphicon-signal"></span><strong class="small-title">CPU USAGE</strong></p>
 		</div>
 		<div class="small-1 columns">
-			<p id="cpu-usage-text"></span>{{ cpuUsage }}</p>
+			<p id="cpu-usage-text"></span>{% cpuUsage %}</p>
 		</div>
 		<div class="small-9 columns">
 			<div class="progress">
-				<span id="cpu-usage-meter" class="meter" style="width: 0%"></span>
+				<span id="cpu-usage-meter" class="meter" style="width: {% cpuUsage %}"></span>
 			</div>
 		</div>
 	</div>
@@ -56,7 +58,7 @@
 			<p><span class="glyphicon glyphicon-tasks"></span><strong class="small-title">MEMORY USAGE</strong></p>
 		</div>
 		<div class="small-1 columns">
-			<p id="memory-usage-text"></span>{{ memoryUsage }}</p>
+			<p id="memory-usage-text"></span>{% memoryUsage %}</p>
 		</div>
 		<div class="small-9 columns">
 			<div class="progress">
@@ -69,7 +71,7 @@
 			<p><span class="glyphicon glyphicon-hdd"></span><strong class="small-title">DISK USAGE</strong></p>
 		</div>
 		<div class="small-1 columns">
-			<p id="disk-usage-text"></span>{{ diskUsage }}</p>
+			<p id="disk-usage-text"></span>{% diskUsage %}</p>
 		</div>
 		<div class="small-9 columns">
 			<div class="progress">

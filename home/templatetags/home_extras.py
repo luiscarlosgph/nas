@@ -3,8 +3,13 @@ from datetime import timedelta
 import subprocess
 import re
 import psutil
+import time
 
 register = template.Library()
+
+@register.simple_tag
+def datetime():
+	return time.strftime("%a %d %b %Y - %H:%M:%S")
 
 @register.simple_tag
 def uptime():
@@ -14,15 +19,12 @@ def uptime():
 	return uptimeStr.split('.')[0]
 
 @register.simple_tag
+def cpuUsage():
+	return str(int(psutil.cpu_percent(interval = 1) + 0.5)) + '%'
+
+@register.simple_tag
 def memoryUsage():
-	cmdOut = subprocess.Popen(['free', '-m'], stdout = subprocess.PIPE).communicate()[0]
-	cacheLine = cmdOut.splitlines(4)[2]
-	p = re.compile('\d+')
-	line = p.findall(cacheLine)
-	used = float(line[0])
-	free = float(line[1])
-	percentage = int(((used / (used + free)) * 100) + 0.5);
-	return str(percentage) + '%' 
+	return str(int(psutil.virtual_memory()[2] + 0.5)) + '%'
 
 @register.simple_tag
 def diskUsage():
