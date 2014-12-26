@@ -6908,5 +6908,40 @@ body {
 #home-nas-title {
 	text-align: center;
 	font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-	font-weight: bold;
+	font-weight: lighter;
+}
+
+#home-nas-subtitle {
+	margin: 0 10% 2% 10%;
+}
+
+#home-nas-subtitle > h2 {
+	font-weight: lighter;
+	font-size: x-large;
+	text-align: center;
+}
+
+#top-left-logo {
+	font-weight: lighter;
+	color: rgb(59, 168, 205);
+	/* text-shadow: 2px 2px orange; */
+}
+
+#top-left-logo > span {
+	color: orange;
+}
+
+#username-icon {
+	/*
+	width: 5%;
+	*/
+}
+
+#password-icon {
+	/*
+	width: 5%;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	*/
 }
