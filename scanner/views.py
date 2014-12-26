@@ -5,6 +5,7 @@ import re
 import random
 import string
 import time
+import os
 
 '''
 For this code to work:
@@ -13,6 +14,9 @@ For this code to work:
 2) The command scanimage -L must be available.
 
 '''
+
+# Constants
+SCAN_DIR = '/mnt/raid/scanner/'
 
 def show(request):
 	return render(request, 'scanner/index.html')
@@ -38,20 +42,32 @@ def scan(request):
 			valid = True
 			break
 	if (not valid):
-		return render(request, 'scanner/index.html')
-
+		return HttpResponse('ERROR')
+	
 	# Now that we know that the name of the scanner provided is valid, we can scan
-	cmdOut = subprocess.Popen(['scanimage', '--resolution=300', '-d', scannerProvided], stdout = subprocess.PIPE).communicate()[0]
+	#cmdOut = subprocess.Popen(['scanimage', '--resolution=300', '-d', scannerProvided], stdout = subprocess.PIPE).communicate()[0]
 	
 	# Writing image to file
 	randstr = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(10)])
 	filePath = '/tmp/' + randstr + '.ppm'
-	f = open(filePath, 'w')
-	f.write(cmdOut)
-	f.close()
+	#f = open(filePath, 'w')
+	#f.write(cmdOut)
+	#f.close()
+	os.system('scanimage --resolution=300 -d \'' + scannerProvided + '\' > ' + filePath)
 	
 	# Converting image in PPM format to JPG
-	newFilePath = '/mnt/raid/scanner/' + time.strftime("%a %d %b %Y - %H:%M:%S") + '.jpg'
-	subprocess.Popen(['convert', '-quality', '60', filePath, newFilePath], stdout = subprocess.PIPE).communicate()[0]
+	newFilePath = SCAN_DIR + time.strftime("%a %d %b %Y - %H:%M:%S") + '.jpg'
+	#subprocess.Popen(['convert', '-quality', '60', filePath, newFilePath], stdout = subprocess.PIPE).communicate()[0]
+	os.system('convert -quality 60 \'' + filePath + '\' \'' + newFilePath + '\'')
+	os.remove(filePath)
 
 	return HttpResponse('OK')
+
+def deletePicture(request):
+	picture = SCAN_DIR + request.GET.get('p', 'error')
+
+	if (os.path.isfile(picture)):
+		os.remove(picture)
+		return HttpResponse('OK')
+	else:
+		return HttpResponse('ERROR')

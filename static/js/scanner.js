@@ -29,7 +29,7 @@ function refreshScannerList() {
 function scan() {
 	// Changing the scan button to animate it while scanning 
 	var scanBtn = document.getElementById('scanner-scan');
-	scanBtn.innerHTML = '<i class="glyphicon glyphicon-refresh"></i> SCAN'
+	scanBtn.innerHTML = '<i class="glyphicon glyphicon-refresh icon-refresh-animate"></i> SCAN'
 	
 	// Getting the device name of the scanner currently selected by the user
 	var scannerList = document.getElementById('scanner-list')
@@ -45,6 +45,18 @@ function scan() {
 		}
 	}		
 	xmlhttp.open('GET', '/scanners/scan/?s=' + scannerList.options[scannerList.selectedIndex].text, true);
+	xmlhttp.send();
+}
+
+function deletePicture(picname) {
+	// Ask server to scan
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			location.reload();
+		}
+	}		
+	xmlhttp.open('GET', '/scanners/deletePicture/?p=' + picname, true);
 	xmlhttp.send();
 }
 
