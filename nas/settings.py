@@ -45,6 +45,7 @@ INSTALLED_APPS = (
 	 'file_explorer',
 	 'task',
 	 'alarm',
+	 'pdf_creator',
 )
 
 MIDDLEWARE_CLASSES = (

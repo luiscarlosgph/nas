@@ -23,5 +23,6 @@ urlpatterns = patterns('',
 	 url(r'^file-explorer/$', 'file_explorer.views.show', name='fileExplorer'),
 	 url(r'^tasks/$', 'task.views.show', name='task'),
 	 url(r'^alarms/$', 'alarm.views.show', name='alarm'),
+	 url(r'^pdf-creator/$', 'pdf_creator.views.show', name='pdfCreator'),
     url(r'^admin/$', include(admin.site.urls)),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
