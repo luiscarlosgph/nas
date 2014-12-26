@@ -49,7 +49,7 @@ function scan() {
 }
 
 // Updating date and time
-var refreshInterval = 2000; // ms
+var refreshInterval = 1000; // ms
 refreshScannerList();
 setInterval(refreshScannerList, refreshInterval);
 

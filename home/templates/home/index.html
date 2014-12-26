@@ -19,7 +19,10 @@
 {% block content %}
 	
 	{% load home_extras %}
-	
+	<div class="row">
+		<h1 id="home-nas-title">NAS</h1>
+		<h2 id="home-nas-subtitle">The plug and play network attached storage for normal people.</h2>
+	</div>
 	<div class="row">
 		<div class="small-2 columns">
 			<p><span class="glyphicon glyphicon-calendar"></span><strong class="small-title">DATE AND TIME</strong></p>
@@ -45,11 +48,11 @@
 			<p><span class="glyphicon glyphicon-signal"></span><strong class="small-title">CPU USAGE</strong></p>
 		</div>
 		<div class="small-1 columns">
-			<p id="cpu-usage-text"></span>{% cpuUsage %}</p>
+			<p id="cpu-usage-text"></span>10%</p>
 		</div>
 		<div class="small-9 columns">
 			<div class="progress">
-				<span id="cpu-usage-meter" class="meter" style="width: {% cpuUsage %}"></span>
+				<span id="cpu-usage-meter" class="meter" style="width: 10%"></span>
 			</div>
 		</div>
 	</div>

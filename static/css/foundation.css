@@ -6762,7 +6762,10 @@ th.hide-for-touch {
 /* NAS */
 
 body {
-	background-color: #FAFAFA;
+	/* background-color: #FAFAFA; */
+	background: url("/static/img/grid.png");
+	background-size: 10% auto;
+	background-repeat: repeat;
 }
 
 .main-content {
@@ -6900,4 +6903,10 @@ body {
 
 #dropdown-ul > li > a:hover {
 	background-color: #008CBA;
+}
+
+#home-nas-title {
+	text-align: center;
+	font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	font-weight: bold;
 }
