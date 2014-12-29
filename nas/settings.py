@@ -30,8 +30,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
+#    'django.contrib.admin',
+#    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -46,6 +46,7 @@ INSTALLED_APPS = (
 	 'task',
 	 'alarm',
 	 'pdf_creator',
+	 'authentication',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,6 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	 'django.contrib.sessions.middleware.SessionMiddleware',
 )
 
 ROOT_URLCONF = 'nas.urls'
@@ -69,7 +71,7 @@ WSGI_APPLICATION = 'nas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR + '/db/', 'db.sqlite3'),
     }
 }
 
@@ -100,6 +102,13 @@ SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
 # Find templates in the same folder as settings.py.
 TEMPLATE_DIRS = (
 	os.path.join(SETTINGS_PATH + '/../', 'templates'),
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+	'django.core.context_processors.debug',
+	'django.core.context_processors.i18n',
+	'django.core.context_processors.media',
+	'django.core.context_processors.request',
 )
 
 # DJANGO_WYSIWYG_FLAVOR = 'ckeditor'

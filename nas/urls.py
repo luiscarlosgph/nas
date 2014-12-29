@@ -25,5 +25,7 @@ urlpatterns = patterns('',
 	 url(r'^tasks/$', 'task.views.show', name='task'),
 	 url(r'^alarms/$', 'alarm.views.show', name='alarm'),
 	 url(r'^pdf-creator/$', 'pdf_creator.views.show', name='pdfCreator'),
-    url(r'^admin/$', include(admin.site.urls)),
+	 url(r'^login/$', 'authentication.views.login', name='authenticateLogin'),
+	 url(r'^logout/$', 'authentication.views.logout', name='authenticateLogout'),
+#    url(r'^admin/$', include(admin.site.urls)),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

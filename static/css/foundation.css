@@ -6901,10 +6901,6 @@ body {
 	font-size: x-small;
 }
 
-#login-btn {
-	font-size: 0.6875rem;
-}
-
 #dropdown-ul > li > a:hover {
 	background-color: #008CBA;
 }
@@ -6939,6 +6935,7 @@ body {
 	margin: 0 0 0 5px;
 }
 
+/*
 #username-li > input, #password-li > input {
 	-webkit-border-top-right-radius: 3px;
 	-webkit-border-bottom-right-radius: 3px;
@@ -6946,20 +6943,20 @@ body {
 	-moz-border-radius-bottomright: 3px;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
-	box-shadow: none;
+	// box-shadow: none;
 }
 
 #username-li > input:focus, #password-li > input:focus {
-	border-color: #cccccc;
+	box-shadow: 1px -1px 1px #999999, 1px 1px 1px #999999, 1px 0px 1px #999999;
 }
 
 #username-icon-li, #password-icon-li {
 	margin: 9px 0 0 5px;
 	padding: 0;
 	background: #f2f2f2;
-	border-right: none;
+	border: none;
 	color: #333333;
-	border-color: #cccccc;
+	// border-color: #cccccc;
 	-webkit-border-top-left-radius: 3px;
 	-webkit-border-bottom-left-radius: 3px;
 	-moz-border-radius-topleft: 3px;
@@ -6982,6 +6979,7 @@ body {
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
 }
+*/
 
 .icon-refresh-animate {
 	-webkit-animation:spin 4s linear infinite;

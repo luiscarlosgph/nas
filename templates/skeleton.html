@@ -9,6 +9,9 @@
 		<script src="/static/js/vendor/modernizr.js"></script>
 	</head>
 	<body>
+		
+		{% load authentication_extras %}
+
 		<!-- Top bar -->
 		<nav class="top-bar" data-topbar role="navigation">
   			<ul class="title-area">
@@ -21,11 +24,14 @@
 			<section class="top-bar-section">
 				<!-- Right Nav Section -->
 				<ul class="right">
-					<li id="username-icon-li"><i class="glyphicon glyphicon-user"></i></li>
-					<li id="username-li"><input type="text" placeholder="Username"></li>
-					<li id="password-icon-li"><i class="glyphicon glyphicon-lock"></i></li>
-					<li id="password-li"><input type="text" placeholder="Password"></li>
-					<li id="login-btn-li"><a id="login-btn" class="button radius tiny" href="#"><i class="glyphicon glyphicon-log-in"></i> LOGIN</a></li>
+					{% loginInformation %}
+							<!--
+							<li id="username-icon-li"><i id="username-icon-i" class="glyphicon glyphicon-user"></i></li>
+							<li id="username-li"><input id="username-input" type="text" placeholder="Username"></li>
+							<li id="password-icon-li"><i id="password-icon-i" class="glyphicon glyphicon-lock"></i></li>
+							<li id="password-li"><input id="password-input" type="text" placeholder="Password"></li>
+							<li id="login-btn-li"><a id="login-btn" class="button radius tiny" href="#"><i class="glyphicon glyphicon-log-in"></i> LOGIN</a></li>
+							-->
 					<li class="has-dropdown">
 						<a href="#"><i class="glyphicon glyphicon-cog"></i></a>
 						<ul id="dropdown-ul" class="dropdown">
@@ -67,6 +73,22 @@
 			</div>
 		</div>
 
+		<!-- Login Modal Dialog -->
+		<div id="loginModal" class="reveal-modal tiny" data-reveal>
+			<p>Log in</p>
+			<form id="login-form" action="/login/" method="POST">
+				{% csrf_token %}
+				<div class="row">
+					<div class="small-12 columns">
+						<input id="user-input" type="text" name="user" placeholder="Username" />
+						<input id="pass-input" type="password" name="pass" placeholder="Password" />
+						<a id="submit-login-form" class="button radius small right" href="#"><i class="glyphicon glyphicon-log-in"></i> Log in</a>
+					</div>
+				</div>
+			</form>
+			<a class="close-reveal-modal">&#215;</a>
+		</div>
+
 		<div id="footer">
 			<div class="row">
 				<div class="small-8 columns"></div>
@@ -84,11 +106,8 @@
 
 		<!-- Javascript -->
 		<script src="/static/js/vendor/jquery.js"></script>
+		<script src="/static/js/vendor/fastclick.js"></script>
 		<script src="/static/js/foundation.min.js"></script>
-		<script src="/static/js/jquery-2.1.1.min.js"></script>
 		<script src="/static/js/skeleton.js"></script>
-		<script>
-			$(document).foundation();
-		</script>
 	</body>
 </html>

@@ -1,0 +1,2 @@
+- Detect focus on the username and password boxes and highlight the border. It needs to be done with JS
+  because the li tags with the icons are siblings of the parents of the input boxes.
