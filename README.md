@@ -1,7 +1,7 @@
 CloudNAS
 ========
 
-Web application based on Django to operate a NAS
+Web application based on Django to operate a NAS.
 
 Install
 =======
@@ -10,6 +10,7 @@ Install
 2. Create the user and group 'nas'.
 3. Clone this repository to /var/www.
 4. Add this lines to your Apache config file (in Debian: /etc/apache2/sites-enabled/000-default):
+
 		<VirtualHost *:80>
 			ServerAdmin webmaster@localhost
 
@@ -18,4 +19,5 @@ Install
 			WSGIScriptAlias / /var/www/nas/wsgi.py
 
 			DocumentRoot /var/www
+
 5. Enjoy!
