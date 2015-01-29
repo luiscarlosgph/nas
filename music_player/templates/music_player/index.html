@@ -4,6 +4,13 @@
 	<title>NAS | Music Player</title>
 {% endblock %}
 
+{% block topleftnav %}
+	<li class="not-active"><a class="item" href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+	<li class="active"><a class="item" href="/music-player"><i class="glyphicon glyphicon-music"></i></a></li>
+	<li class="not-active"><a class="item"><i class="glyphicon glyphicon-picture"></i></a></li>
+	<li class="not-active"><a class="item"><i class="glyphicon glyphicon-film"></i></a></li>
+{% endblock %}
+
 {% block content %}
 
 	<div id="music-player-content" class="row">

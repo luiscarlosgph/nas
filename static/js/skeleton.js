@@ -18,8 +18,16 @@ function passFocus() {
 }
 */
 
+// Submits login form
+function submitLoginForm() {
+	document.getElementById('login-form').submit();
+}
+
 // Running foundation
 $(document).foundation();
+
+// Add listeners
+document.getElementById('submit-login-form').addEventListener('click', submitLoginForm);
 
 // Footer always in place
 $(window).bind("load", function () {
@@ -37,10 +45,40 @@ $(window).bind("load", function () {
 $(document).on('opened.fndtn.reveal', '[data-reveal]', function () {
 	$('#user-input').focus();
 });
-function submitForm() {
-	document.getElementById('login-form').submit();
-}
-document.getElementById('submit-login-form').addEventListener('click', submitForm);
+
+// Handler for enter key in login form
+$("#pass-input").keypress(function(event) {
+	if (event.which == 13) {
+		event.preventDefault();
+		// if (isLoginOk($('#user-input').val(), $('#pass-input').val())) {
+		//	$("#submit-login-form").html("<i class=\"glyphicon glyphicon-refresh icon-refresh-animate\"></i> Logging in...");
+		submitLoginForm();
+		//}
+		//else {
+		//	$('#login-columns-div').html('<div data-alert id="erroneous-login-alert" class="alert-box info radius">Incorrect username or password.<a href="#" class="close">&times;</a></div>' + $('#login-columns-div').html());
+		//}
+	}
+});
+
+// Handler for right click on the 'Log in' button in the login form
+$('#submit-login-form').mousedown(function(event) {
+	// if (isLoginOk($('#user-input').val(), $('#pass-input').val())) {
+	//	$("#submit-login-form").html("<i class=\"glyphicon glyphicon-refresh icon-refresh-animate\"></i> Logging in...");
+	submitLoginForm();
+	// }
+	// else {
+	//	$('#login-columns-div').html('<div data-alert id="erroneous-login-alert" class="alert-box info radius">Incorrect username or password.<a id="close-erroneous-login-msg" class="close" href="#">&times;</a></div>' + $('#login-columns-div').html());
+	// }
+});
+
+// Handler for <a> tag to close the erroneous login message
+// FIXME: not working!
+/*
+$("#close-erroneous-login-msg").mousedown(function(event) {
+	window.alert("hello");
+	$("erroneous-login-alert").hide();
+});
+*/
 
 // Creating handlers for focus events of the user and pass input boxes
 /*

@@ -9,7 +9,6 @@
 		<script src="/static/js/vendor/modernizr.js"></script>
 	</head>
 	<body>
-		
 		{% load authentication_extras %}
 
 		<!-- Top bar -->
@@ -24,7 +23,6 @@
 			<section class="top-bar-section">
 				<!-- Right Nav Section -->
 				<ul class="right">
-					{% loginInformation %}
 							<!--
 							<li id="username-icon-li"><i id="username-icon-i" class="glyphicon glyphicon-user"></i></li>
 							<li id="username-li"><input id="username-input" type="text" placeholder="Username"></li>
@@ -32,45 +30,66 @@
 							<li id="password-li"><input id="password-input" type="text" placeholder="Password"></li>
 							<li id="login-btn-li"><a id="login-btn" class="button radius tiny" href="#"><i class="glyphicon glyphicon-log-in"></i> LOGIN</a></li>
 							-->
+					{% if 'user' in request.session %}
 					<li class="has-dropdown">
-						<a href="#"><i class="glyphicon glyphicon-cog"></i></a>
+						<a href="#"><i class="glyphicon glyphicon-user"></i> {% getLoggedUser %}</a>
 						<ul id="dropdown-ul" class="dropdown">
 							<!-- <li><a href="#">Configure</a></li> -->
 							<li><a href="#"><i class="glyphicon glyphicon-lock"></i> Change password</a></li>
+							<!-- <li><a href="#"><i class="glyphicon glyphicon-user"></i> Users</a></li> -->
 							<!-- <li><a href="#">Filesystem</a></li> -->
 							<!-- <li><a href="#">Firewall</a></li> -->
 							<!-- <li><a href="#">Logs</a></li> -->
 							<!-- <li><a href="#">Network</a></li> -->
 							<!-- <li><a href="#">Packages</a></li> -->
 							<!-- <li><a href="#">Processes</a></li> -->
-							<li><a href="#"><i class="glyphicon glyphicon-user"></i> Users</a></li>
-							<li><a href="#"><i class="glyphicon glyphicon-eye-open"></i> CloudNAS GUI</a></li>
-							<li><a href="#"><i class="glyphicon glyphicon-usd"></i> CloudNAS Terminal</a></li>
+							<!-- <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i> CloudNAS GUI</a></li>-->
+							<!-- <li><a href="#"><i class="glyphicon glyphicon-usd"></i> CloudNAS Terminal</a></li>-->
 						</ul>
 					</li>
+					<li id="logout-btn-li">
+						<a id="logout-btn" class="small button radius" href="/logout/">
+							Log out<i class="glyphicon glyphicon-log-out"></i>
+						</a>
+					</li>
+					{% else %}
+					<li id="login-btn-li">
+						<a id="login-btn" class="small button radius" href="#" data-reveal-id="loginModal">
+							<i class="glyphicon glyphicon-log-in"></i> Log in
+						</a>
+					</li>'
+					{% endif %}
+					<li id="top-right-margin"></li>
     			</ul>
 				<!-- Left Nav Section -->
 				<ul id="top-left-icon-bar-ul" class="left">
+					{% block topleftnav %}{% endblock %}
+					<!--
 					<li class="active"><a class="item" href="/"><span class="glyphicon glyphicon-home"></span></a></li>
 					<li class="not-active"><a class="item" href="/music-player"><i class="glyphicon glyphicon-music"></i></a></li>
 					<li class="not-active"><a class="item"><i class="glyphicon glyphicon-picture"></i></a></li>
 					<li class="not-active"><a class="item"><i class="glyphicon glyphicon-film"></i></a></li>
+					-->
     			</ul>
 			</section>
 		</nav>
 		
 		<!-- Main page -->
 		<div class="row">
+			{% block sidenav %}{% endblock %}
+			<!--
 			<div class="small-2 columns sidebar">
 				<nav>
 					<ul class="side-nav">
-						{% block sidenav %}{% endblock %}
 					</ul>
 				</nav>
 			</div>
+			-->
+			{% block content %}{% endblock %}
+			<!--
 			<div id="content" class="small-10 columns main-content">
-				{% block content %}{% endblock %}
 			</div>
+			-->
 		</div>
 
 		<!-- Login Modal Dialog -->
@@ -79,7 +98,7 @@
 			<form id="login-form" action="/login/" method="POST">
 				{% csrf_token %}
 				<div class="row">
-					<div class="small-12 columns">
+					<div id="login-columns-div" class="small-12 columns">
 						<input id="user-input" type="text" name="user" placeholder="Username" />
 						<input id="pass-input" type="password" name="pass" placeholder="Password" />
 						<a id="submit-login-form" class="button radius small right" href="#"><i class="glyphicon glyphicon-log-in"></i> Log in</a>
@@ -88,7 +107,7 @@
 			</form>
 			<a class="close-reveal-modal">&#215;</a>
 		</div>
-
+		
 		<div id="footer">
 			<div class="row">
 				<div class="small-8 columns"></div>

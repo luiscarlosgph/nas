@@ -6807,7 +6807,7 @@ body {
 }
 
 #content {
-	margin: 2% -0.5% 0 0;
+	margin: 2% 0 0 0.5%;
 }
 
 #content p {
@@ -6985,6 +6985,14 @@ body {
 	-webkit-animation:spin 4s linear infinite;
 	-moz-animation:spin 4s linear infinite;
 	animation:spin 4s linear infinite;
+}
+
+#login-btn:hover, #logout-btn:hover {
+	background-color: #007095;
+}
+
+#top-right-margin {
+	margin-right: 20px;
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }

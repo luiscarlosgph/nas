@@ -5,86 +5,99 @@
 {% endblock %}
 
 {% block sidenav %}
-	<li class="active"><a href="/"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>
-	<!-- <li><a href="/music-player"><i class="glyphicon glyphicon-music"></i> Music Player</a></li> -->
-	<li><a href="/download-manager"><i class="glyphicon glyphicon-download"></i> Download Manager</a></li>
-	<li><a href="/scanners"><i class="glyphicon glyphicon-inbox"></i> Scanners</a></li>
-	<li><a href="/printers"><i class="glyphicon glyphicon-print"></i> Printers</a></li>
-	<li><a href="/file-explorer"><i class="glyphicon glyphicon-folder-open"></i> File Explorer</a></li>
-	<li><a href="/notepad"><i class="glyphicon glyphicon-pencil"></i> Notepad</a></li>
-	<li><a href="/tasks"><i class="glyphicon glyphicon-list-alt"></i> Tasks</a></li>
-	<li><a href="/alarms"><i class="glyphicon glyphicon-time"></i> Alarms</a></li>
-	<li><a href="/pdf-creator"><i class="glyphicon glyphicon-file"></i> PDF Creator</a></li>
+	<div class="small-2 columns sidebar">
+		<nav>
+			<ul class="side-nav">
+				<li class="active"><a href="/"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>
+				<!-- <li><a href="/music-player"><i class="glyphicon glyphicon-music"></i> Music Player</a></li> -->
+				<li><a href="/download-manager"><i class="glyphicon glyphicon-download"></i> Download Manager</a></li>
+				<li><a href="/scanners"><i class="glyphicon glyphicon-inbox"></i> Scanners</a></li>
+				<li><a href="/printers"><i class="glyphicon glyphicon-print"></i> Printers</a></li>
+				<li><a href="/file-explorer"><i class="glyphicon glyphicon-folder-open"></i> File Explorer</a></li>
+				<li><a href="/notepad"><i class="glyphicon glyphicon-pencil"></i> Notepad</a></li>
+				<li><a href="/tasks"><i class="glyphicon glyphicon-list-alt"></i> Tasks</a></li>
+				<li><a href="/alarms"><i class="glyphicon glyphicon-time"></i> Alarms</a></li>
+				<li><a href="/pdf-creator"><i class="glyphicon glyphicon-file"></i> PDF Creator</a></li>
+			</ul>
+		</nav>
+	</div>
+{% endblock %}
+
+{% block topleftnav %}
+	<li class="active"><a class="item" href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+	<li class="not-active"><a class="item" href="/music-player"><i class="glyphicon glyphicon-music"></i></a></li>
+	<li class="not-active"><a class="item"><i class="glyphicon glyphicon-picture"></i></a></li>
+	<li class="not-active"><a class="item"><i class="glyphicon glyphicon-film"></i></a></li>
 {% endblock %}
 
 {% block content %}
-	
-	{% load home_extras %}
-	<div class="row">
-		<h1 id="home-nas-title">CloudNAS<i class="glyphicon glyphicon-cloud"></i></h1>
-		<div id="home-nas-subtitle" class="panel callout radius"><h2>The plug and play network attached storage for ordinary people.</h2></div>
-	</div>
-	<div class="row">
-		<div class="small-2 columns">
-			<p><span class="glyphicon glyphicon-calendar"></span><strong class="small-title">DATE AND TIME</strong></p>
+	<div id="content" class="small-10 columns main-content">
+		{% load home_extras %}
+		<div class="row">
+			<h1 id="home-nas-title">CloudNAS<i class="glyphicon glyphicon-cloud"></i></h1>
+			<div id="home-nas-subtitle" class="panel callout radius"><h2>The plug and play network attached storage for ordinary people.</h2></div>
 		</div>
-		<div class="small-3 columns">
-			<p id="datetime-text">{% datetime %}</p>
+		<div class="row">
+			<div class="small-2 columns">
+				<p><span class="glyphicon glyphicon-calendar"></span><strong class="small-title">DATE AND TIME</strong></p>
+			</div>
+			<div class="small-3 columns">
+				<p id="datetime-text">{% datetime %}</p>
+			</div>
+			<div class="small-7 columns">
+			</div>
 		</div>
-		<div class="small-7 columns">
+		<div class="row">
+			<div class="small-2 columns">
+				<p><span class="glyphicon glyphicon-road"></span><strong class="small-title">UPTIME</strong></p>
+			</div>
+			<div class="small-3 columns">
+				<p id="uptime-text">{% uptime %}</p>
+			</div>
+			<div class="small-7 columns">
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="small-2 columns">
-			<p><span class="glyphicon glyphicon-road"></span><strong class="small-title">UPTIME</strong></p>
+		<div class="row">
+			<div class="small-2 columns">
+				<p><span class="glyphicon glyphicon-signal"></span><strong class="small-title">CPU USAGE</strong></p>
+			</div>
+			<div class="small-1 columns">
+				<p id="cpu-usage-text">10%</p>
+			</div>
+			<div class="small-9 columns">
+				<div class="progress">
+					<span id="cpu-usage-meter" class="meter" style="width: 10%"></span>
+				</div>
+			</div>
 		</div>
-		<div class="small-3 columns">
-			<p id="uptime-text">{% uptime %}</p>
+		<div class="row">
+			<div class="small-2 columns">
+				<p><span class="glyphicon glyphicon-tasks"></span><strong class="small-title">MEMORY USAGE</strong></p>
+			</div>
+			<div class="small-1 columns">
+				<p id="memory-usage-text">{% memoryUsage %}</p>
+			</div>
+			<div class="small-9 columns">
+				<div class="progress">
+					<span id="memory-usage-meter" class="meter" style="width: 0%"></span>
+				</div>
+			</div>
 		</div>
-		<div class="small-7 columns">
-		</div>
-	</div>
-	<div class="row">
-		<div class="small-2 columns">
-			<p><span class="glyphicon glyphicon-signal"></span><strong class="small-title">CPU USAGE</strong></p>
-		</div>
-		<div class="small-1 columns">
-			<p id="cpu-usage-text"></span>10%</p>
-		</div>
-		<div class="small-9 columns">
-			<div class="progress">
-				<span id="cpu-usage-meter" class="meter" style="width: 10%"></span>
+		<div class="row">
+			<div class="small-2 columns">
+				<p><span class="glyphicon glyphicon-hdd"></span><strong class="small-title">DISK USAGE</strong></p>
+			</div>
+			<div class="small-1 columns">
+				<p id="disk-usage-text">{% diskUsage %}</p>
+			</div>
+			<div class="small-9 columns">
+				<div class="progress">
+					<span id="disk-usage-meter" class="meter" style="width: 0%"></span>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="small-2 columns">
-			<p><span class="glyphicon glyphicon-tasks"></span><strong class="small-title">MEMORY USAGE</strong></p>
-		</div>
-		<div class="small-1 columns">
-			<p id="memory-usage-text"></span>{% memoryUsage %}</p>
-		</div>
-		<div class="small-9 columns">
-			<div class="progress">
-				<span id="memory-usage-meter" class="meter" style="width: 0%"></span>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="small-2 columns">
-			<p><span class="glyphicon glyphicon-hdd"></span><strong class="small-title">DISK USAGE</strong></p>
-		</div>
-		<div class="small-1 columns">
-			<p id="disk-usage-text"></span>{% diskUsage %}</p>
-		</div>
-		<div class="small-9 columns">
-			<div class="progress">
-				<span id="disk-usage-meter" class="meter" style="width: 0%"></span>
-			</div>
-		</div>
-	</div>
-
 	<script src="/static/js/home.js"></script>
-	
+		
 {% endblock %}
 
