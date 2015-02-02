@@ -9,10 +9,10 @@ def login(request):
 	output = Popen(['sudo', '/var/www/authentication/pamtest.py', username, password], stdout=PIPE).communicate()[0]
 	if (output == 'OK'):
 		request.session['user'] = username
-		return render(request, 'home/index.html')
+		return HttpResponse('OK')
 	else:
 		request.session.pop('user', None)
-		return HttpResponseRedirect('/')
+		return HttpResponse('FAIL')
 
 def logout(request):
 	request.session.pop('user', None)

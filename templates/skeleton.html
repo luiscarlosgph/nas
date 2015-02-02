@@ -55,12 +55,12 @@
 					</li>
 					<li id="logout-btn-li">
 						<a id="logout-btn" class="small button radius" href="/logout/">
-							Log out<i class="glyphicon glyphicon-log-out"></i>
+							Log out <i class="glyphicon glyphicon-log-out"></i>
 						</a>
 					</li>
 					{% else %}
 					<li id="login-btn-li">
-						<a id="login-btn" class="small button radius" href="#" data-reveal-id="loginModal">
+						<a id="login-btn" class="small button radius" href="#" data-reveal-id="login-modal">
 							<i class="glyphicon glyphicon-log-in"></i> Log in
 						</a>
 					</li>'
@@ -99,19 +99,20 @@
 		</div>
 
 		<!-- Login modal dialog -->
-		<div id="loginModal" class="reveal-modal tiny" data-reveal>
+		<div id="login-modal" class="reveal-modal tiny" data-reveal>
 			<p>Log in</p>
 			<form id="login-form" action="/login/" method="POST">
 				{% csrf_token %}
 				<div class="row">
 					<div id="login-columns-div" class="small-12 columns">
+						<div id="login-error-area"></div>
 						<input id="user-input" type="text" name="user" placeholder="Username" />
 						<input id="pass-input" type="password" name="pass" placeholder="Password" />
 						<a id="submit-login-form" class="button radius small right" href="#"><i class="glyphicon glyphicon-log-in"></i> Log in</a>
 					</div>
 				</div>
 			</form>
-			<a class="close-reveal-modal">&#215;</a>
+			<a id="close-login-modal" class="close-reveal-modal">&#215;</a>
 		</div>
 		
 		<!-- Change password modal dialog -->
@@ -121,7 +122,7 @@
 				{% csrf_token %}
 				<div class="row">
 					<div id="login-columns-div" class="small-12 columns">
-						<input type="password" name="oldPass" placeholder="Old password" />
+						<input id="old-pass-input" type="password" name="oldPass" placeholder="Old password" />
 						<input type="password" name="newPass" placeholder="New password" />
 						<input type="password" name="repeatNewPass" placeholder="Repeat new password" />
 						<a id="submit-login-form" class="button radius small right" href="#"><i class="glyphicon glyphicon-lock"></i> Change password</a>
