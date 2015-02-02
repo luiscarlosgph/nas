@@ -108,6 +108,15 @@ $('#login-form').on('submit', function(event){
 });
 
 // Handler for enter key in login form
+$("#user-input").keypress(function(event) {
+	if (event.which == 13) {
+		event.preventDefault();
+		$("#submit-login-form").html("<i class=\"glyphicon glyphicon-refresh icon-refresh-animate\"></i> Log in");
+		$('#login-form').submit();
+	}
+});
+
+// Handler for enter key in login form
 $("#pass-input").keypress(function(event) {
 	if (event.which == 13) {
 		event.preventDefault();
